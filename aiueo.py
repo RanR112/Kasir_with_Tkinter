@@ -109,6 +109,7 @@ def tambahProduk():
         messagebox.showerror("Error", "Jumlah Harus Lebih dari 0!")
         return
     
+    global totalBiaya, totalKuantitas
     produkCocok = [(kode, infoProduk) for kode, infoProduk in produk.items() if infoProduk['nama'] == produkDipilih]
     
     if produkCocok:
@@ -126,10 +127,10 @@ def tambahProduk():
                 keranjang.delete(item)
                 kuantitas += kuantitasAwal
                 totalHarga += totalHargaAwal
+                totalBiaya -= totalHargaAwal
         
         keranjang.insert("", "end", values=(kodeProduk, namaProduk, hargaProduk, kuantitas, totalHarga))
         
-        global totalBiaya, totalKuantitas
         totalBiaya += totalHarga
         totalKuantitas += kuantitas
         
@@ -229,7 +230,6 @@ def reset():
     strukTeks.config(state=tk.DISABLED)
     
     messagebox.showinfo("Info", "Kasir Berhasil Di Reset")
-
 
 namaToko = tk.Label(layar, text="PROGRAM KASIR TOKO AIUEO", font=("Helevetica", 18, "bold"))
 namaToko.pack()
