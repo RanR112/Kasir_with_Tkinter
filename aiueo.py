@@ -192,7 +192,6 @@ def checkout():
         strukTeks.image_create(tk.END, image=logo)
         strukTeks.insert(tk.END, struk)
         strukTeks.config(state=tk.DISABLED)
-        
         messagebox.showinfo("Info", "Struk Berhasil Dicetak")
 
 def hapusProduk():
@@ -215,6 +214,7 @@ def reset():
     global totalBiaya, totalKuantitas
     totalBiaya = 0
     totalKuantitas = 0
+    pilihProduk.delete(0, tk.END)
     keranjang.delete(*keranjang.get_children())
     labelTotal.config(text="Total Biaya: Rp 0.00")
     labelKembalian.config(text="Kembalian: Rp 0.00")
