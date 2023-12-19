@@ -215,6 +215,7 @@ def reset():
     totalBiaya = 0
     totalKuantitas = 0
     pilihProduk.delete(0, tk.END)
+    pilihProduk['values'] = daftarProduk
     keranjang.delete(*keranjang.get_children())
     labelTotal.config(text="Total Biaya: Rp 0.00")
     labelKembalian.config(text="Kembalian: Rp 0.00")
@@ -228,7 +229,6 @@ def reset():
     strukTeks.image_create(tk.END, image=logo)
     strukTeks.insert(tk.END, f"\n\n{'A I U E O  ATK':^40}\n{'Jl.Cianjur, Karangpawitan,':^40}\n{'Kec. Karawang Bar., Karawang,':^40}\n{'Jawa Barat 41315, Indonesia':^40}\n{'Kab. Karawang':^40}\n\n{'='*38:^40}")
     strukTeks.config(state=tk.DISABLED)
-    
     messagebox.showinfo("Info", "Kasir Berhasil Di Reset")
 
 namaToko = tk.Label(layar, text="PROGRAM KASIR TOKO AIUEO", font=("Helevetica", 18, "bold"))
